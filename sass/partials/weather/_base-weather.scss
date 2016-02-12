@@ -1,0 +1,68 @@
+.weather{
+  margin: 0 20px;
+  width:400px;
+  p,.form-label{
+    font-size:14px;
+    line-height: 18px;
+    margin:4px;
+  }
+  label{
+    margin-right:10px;
+  }
+  .loading{
+    margin:4px;
+    color:$white;
+    font-weight:bold;
+    background:$red;
+    position:absolute;
+    width:180px;
+    height:40px;
+    display: -webkit-flex;
+    display: flex;
+    top:0;
+    left:0;
+    div{
+      margin:auto;
+
+    }
+  }
+}
+
+.toggle {
+  padding-top: 0;
+  cursor: pointer;
+}
+
+.toggle-menu {
+  float: left;
+  margin:0 !important;
+
+  &.toggle-menu li {
+    display: block;
+    float: left;
+    list-style-type: none;
+    text-align: left;
+    .toggle-menu-bar {
+      display: block;
+      width: 25px;
+      height: 4px;
+      background-color: #B8B8B8;
+      -webkit-border-radius: 3px;
+      -moz-border-radius: 3px;
+      border-radius: 3px;
+      margin: 0 auto 3px;
+    }
+  }
+}
+.weather-menu{
+  background:$black-light;
+  padding:10px 0;
+  margin:0;
+  height:42px;
+  .weather-title{
+    font-weight:bold;
+    padding-left:20px;
+    color:$white;
+  }
+
+}

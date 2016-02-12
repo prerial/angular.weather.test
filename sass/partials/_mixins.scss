@@ -1,0 +1,12 @@
+@mixin default-text-color($tc){
+  color: $tc;
+}
+@mixin default-text-color($tc: $black){
+  color: $tc;
+}
+ 
+/*
+You can define a default value as well if an attribute
+isn't passed
+ 
+*/
