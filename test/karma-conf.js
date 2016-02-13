@@ -21,7 +21,7 @@ module.exports = function(config){
       // include unit test specs
       'test/mocks/*.js',
       // include unit test specs
-         'test/unit/*.js'
+      'test/unit/*.js'
     ],
     // files to exclude
     exclude : [
@@ -40,7 +40,7 @@ module.exports = function(config){
     preprocessors: {
     },
 
-    reporters: ['dots'/*, 'progress', 'coverage'*/],
+    reporters: ['dots', 'progress', 'coverage'],
 
     // list of karma plugins
     plugins : [
