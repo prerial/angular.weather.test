@@ -1,10 +1,14 @@
 {
-  "name"         : "adobe.weather.test",
+  "name"         : "angular.weather.test",
   "version"      : "0.0.0",
   "description"  : "Weather test sample",
-  "main"         : "server.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/prerial/angular.weather.test.git"
+  },
   "license"       : "MIT",
   "author"       : "MG",
+  "main"         : "server.js",
   "dependencies" : {
     "ejs": "~2.3.4",
     "express": "~4.13.4",
