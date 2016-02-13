@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html ng-app="weather">
+  <head>
+    	<title>Weather test</title>
+
+<!--	  <link href="css/main.css" rel="stylesheet" type="text/css" /> -->
+	  <link href="css/main.min.css" rel="stylesheet" type="text/css" />
+<!--		<script src="libs/jquery/jquery.min.js"></script> -->
+		<script src="libs/angular/angular.js"></script>
+		<script src="libs/angular/angular-route.js"></script>
+<!--	  <script src="js/main.js"></script> -->
+	  	<script src="js/main.min.js"></script>
+
+  </head>
+
+<body ng-controller="appController">
+
+<nav class="nav-gor">
+	<div class="navbar">
+		<a href="#">Adobe Marketing Cloud</a>
+		<span>/</span>
+		<a href="#/{{urlpage}}">{{page}}</a>
+		<span>/</span>
+	</div>
+</nav>
+
+<div class="div-left" ng-class="isNavHidden?'hidenav':''">
+	<nav class="nav-vert" ng-hide="isNavHidden" style="margin-top:50px">
+		<ul class="list-group">
+			<li class="list-group-item"><a href="#/">Menu</a></li>
+			<li class="list-group-item"><a href="#/home">Home</a></li>
+			<li class="list-group-item"><a href="#/weather">Weather</a></li>
+		</ul>
+	</nav>
+</div>
+
+<div class="div-right" ng-class="isNavHidden?'expand-content':''">
+	<div class="div-center">
+		<section ng-view autoscroll="true"></section>
+	</div>
+</div>
+
+</body>
+</html>
