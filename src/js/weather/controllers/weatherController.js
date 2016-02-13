@@ -11,13 +11,13 @@
             $scope.isLoading = false;
             $scope.isHidden = true;
 
-            function resetForm() {
+            $scope.resetForm = function () {
                 $scope.isLoading = false;
                 $scope.weatherForm.city = "";
                 $scope.weatherForm.zip = "";
                 $scope.weatherForm.$setPristine();
                 $scope.weatherForm.$setUntouched();
-            }
+            };
             $scope.getWeather = function() {
                 var location = null;
                 $scope.isLoading = true;
@@ -29,7 +29,7 @@
                     $scope.isLoading = false;
                     $scope.isHidden = true;
                     alertService.show({message:'Please enter valid City or ZIP'});
-                    resetForm();
+                    $scope.resetForm();
                     return;
                 }
                 $scope.isHidden = true;
@@ -44,7 +44,7 @@
                             $scope.isHidden = false;
                             $scope.weather = resp;
                         }
-                        resetForm();
+                        $scope.resetForm();
                         $scope.isLoading = false;
                     }
                 );
