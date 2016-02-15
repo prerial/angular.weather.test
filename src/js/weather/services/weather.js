@@ -4,7 +4,7 @@
 (function() {
     'use strict';
 
-    angular.module('weather').factory('weatherService',['$http', '$q', 'alertService', function($http, $q) {
+    angular.module('weather').factory('weatherService',['$http', '$q', function($http, $q) {
 
         function getTime(str) {
             var date = new Date(str*1000);
@@ -24,13 +24,11 @@
         }
 
         function getWeather(url) {
-
             var request = $http({
                 method: "get",
                 url: url
             });
             return( request.then( handleSuccess, handleError ) );
-
         }
 
         function handleError( response ) {
