@@ -9,25 +9,25 @@
   label{
     margin-right:10px;
   }
-  .loading{
-    margin:4px;
-    color:$white;
-    font-weight:bold;
-    background:$red;
-    position:absolute;
-    width:180px;
-    height:40px;
-    display: -webkit-flex;
-    display: flex;
-    top:0;
-    left:0;
-    div{
-      margin:auto;
 
-    }
+}
+.loading{
+  margin:100px 340px;
+  color:$white;
+  font-weight:bold;
+  background:$red;
+  position:absolute;
+  width:180px;
+  height:40px;
+  display: -webkit-flex;
+  display: flex;
+  top:0;
+  left:0;
+  div{
+    margin:auto;
+
   }
 }
-
 .toggle {
   padding-top: 0;
   cursor: pointer;
