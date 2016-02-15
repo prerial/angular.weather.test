@@ -16,10 +16,10 @@
 - $ node server or dbl click server.bat
 
 ### Application
-- Open Chrome browser window URL: http://localhost:3000/
+- Open in browser window URL: http://localhost:3000/
 - (development version)
 
-- Open  Chrome browser window URL: http://localhost:3000/index.min.html
+- Open in browser window URL: http://localhost:3000/index.min.html
 - (minified js and css version)
 
 - Unit tests
