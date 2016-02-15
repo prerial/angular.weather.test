@@ -1,26 +1,39 @@
-.div-left{
-  float:left;
-  width:280px;
-  height:100%;
-  background:#4f4f4f;
-  &.hidenav {
-    width: 0 !important;
-  }
-}
-.div-right{
-  position: relative;
-  margin-left:280px;
-  height:100%;
-  &.expand-content{
-    margin-left:0 !important;
-  }
-  .div-center{
-    margin-top:50px;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
+.flex-container {
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-flex-wrap: nowrap;
+  -ms-flex-wrap: nowrap;
+  flex-wrap: nowrap;
+  -webkit-justify-content: flex-start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+  -webkit-align-content: stretch;
+  -ms-flex-line-pack: stretch;
+  align-content: stretch;
+  -webkit-align-items: flex-start;
+  -ms-flex-align: start;
+  align-items: flex-start;
+  height: 100%;
+  .flex-item {
+    -webkit-order: 0;
+    -ms-flex-order: 0;
+    order: 0;
+    -webkit-flex: 1 0 auto;
+    -ms-flex: 1 0 auto;
+    flex: 1 0 auto;
+    -webkit-align-self: stretch;
+    -ms-flex-item-align: stretch;
+    overflow:hidden;
+    align-self: stretch;
+    &:nth-child(1) {
+      -webkit-flex: 0 1 280px;
+      -ms-flex: 0 1 280px;
+      flex: 0 1 280px;
+    }
   }
 }
 
@@ -50,34 +63,29 @@ nav{
       padding: 15px 15px;
     }
   }
-    &.nav-vert {
-      background-color: $gray;
-      border-color: $white;
-      margin-top:50px;
-      width: 280px;
-      ul {
+  &.nav-vert {
+    background-color: $gray;
+    border-color: $white;
+    margin-top:50px;
+    width: 280px;
+    ul {
+      display: block;
+      list-style-type: none !important;
+      margin: 0;
+      padding: 0;
+      margin-bottom: 10px;
+      .list-group-item{
+        position: relative;
         display: block;
-        list-style-type: none !important;
-        margin: 0;
-        padding: 0;
-        margin-bottom: 10px;
-        .list-group-item{
-          position: relative;
-          display: block;
-          padding: 10px 15px;
-          margin-bottom: -1px;
-          background-color: $black-light;
-          border-bottom:2px solid $gray;
-          &:first-child {
-            background-color: $gray;
-          }
+        padding: 10px 15px;
+        margin-bottom: -1px;
+        background-color: $black-light;
+        border-bottom:2px solid $gray;
+        &:first-child {
+          background-color: $gray;
         }
-
       }
+
     }
-}
-.container{
-  margin-top:50px;
-  position: absolute;
-  left:0;
+  }
 }
