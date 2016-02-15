@@ -1,0 +1,77 @@
+Develop a JavaScript application that uses the Current Weather API 
+from OpenWeatherAPI[0] that satisfies the attached mocks.
+
+Requirements
+ General
+	1. You MUST use a JavaScript framework - AngularJS, EmberJS, 
+a react-inspired framework such as Flux, Fluxxor, Redux, etc.  
+	2. You MUST use a CSS preprocessor.
+ 	3. Reproduce the mocks and interactions.
+ 	4. There should be 2 routes, home and weather.
+ 	5. The 3 horizontal lines (hamburger icon) should open and close 
+the left-hand navigation bar.
+ 	6. The breadcrumbs should update to the current route.
+ 	7. Unit tests are required.
+	8. Minified and concatenated version should be generated.
+ 
+ Nice to have
+	1. Usage of some task manager and/or build system 
+for http-server execution, code minification and concatenation process.
+
+ Weather route specific
+ 	1. When the 'Go' button is pressed, 
+please disable the button and show a loading image until the request is satisfied.
+	2. Results:
+		a. Current Weather should map to the current 
+weather API parameter ‘Weather Condition within the group)
+		b. Last Reading, Sunrise, Sunset should be a date in 
+the format (mm/dd/yyyy hh:mm:ss)
+		c. Temperature should be in Fahrenheit
+
+Acceptance Tests
+ Case 1
+ 	City: New York
+	State NY
+	
+	Results will show the current weather
+
+ Case 2
+ 	City: koajfwe 
+ 	State: JJK
+	
+	Results will show error message returned from OpenWeatherAPI
+	
+ Case 3:
+ 	City: New York
+	State: NY
+	
+	During the API request, assume there was an error with the API and a HTTP status code of 500 is returned.  
+	Please handle this and display a generic error message.
+
+[0] http://openweathermap.org/current
+
+http://openweathermap.org/faq#error401
+/***********************************************************/
+/***********************************************************/
+/***********************************************************/
+
+3. run $ npm install
+4  run $ grunt
+5. run $ server
+6. open in browser localhost:3000
+
+Remarks:
+1. There is no search by State at http://openweathermap.org - I used search by State ZIP instead
+2. http://openweathermap.org is not open publc anymore
+
+Created APPID in order to use.
+
+APPID=b878b1f241d4af90168ce82b179cb2c3
+
+http://localhost:3000/index.min.html - uses minified js and css
+
+http://localhost:3000/ - normal, dev version
+
+ /***********************************************************/
+/***********************************************************/
+/***********************************************************/
