@@ -21,7 +21,6 @@ describe('Testing Routes', function(){
     });
 
     it('should navigate to home', function(){
-        // navigate using $apply to safely run the $digest cycle
         $rootScope.$apply(function() {
             $location.path('/home');
         });
@@ -31,7 +30,6 @@ describe('Testing Routes', function(){
     });
 
     it('should redirect not registered urls to home', function(){
-        // navigate using $apply to safely run the $digest cycle
         $rootScope.$apply(function() {
             $location.path('/other');
         });

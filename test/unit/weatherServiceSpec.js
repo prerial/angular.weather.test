@@ -8,15 +8,13 @@ describe('Weather Service test', function() {
     describe('test weather $http service', function() {
 
         var mockBackend, loader, dataUrl = "/data/weather.json",  mockData = {
-            "weather":[{"id":800,"main":"Clear","description":"Sky is Clear","icon":"01d"}],
-            "main":{"temp":123456,"pressure":1006.43,"humidity":90,"temp_min":279.788,"temp_max":279.788,"sea_level":1016.46,"grnd_level":1006.43},
+            "weather":[{"description":"Sky is Clear"}],
+            "main":{"temp":123456},
             "dt":1455203821,
-            "sys":{"message":0.0075,"country":"GB","sunrise":1455175312,"sunset":1455210503},
-            "name":"My City",
-            "cod":200
+            "sys":{"sunrise":1455175312,"sunset":1455210503},
+            "name":"My City"
         };
-        // The _$httpBackend_ is the same as $httpBackend. Only written this way to
-        // differentiate between injected variables and local variables
+
         beforeEach(inject(function (_$httpBackend_, weatherService) {
             mockBackend = _$httpBackend_;
             loader = weatherService;
@@ -33,6 +31,7 @@ describe('Weather Service test', function() {
             expect(weatherlist).toBe(null);
             mockBackend.flush();
             expect(weatherlist.city).toBe('My City');
+            //units=imperial - temperature is displayed as it is (Fahrenheit)
             expect(weatherlist.temperature).toBe(123456);
 
         });
