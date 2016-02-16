@@ -16,7 +16,6 @@
         }]).run(['$rootScope',function ($rootScope) {
             $rootScope.$on('$locationChangeSuccess', function (evt, newurl) {
                 $rootScope.page = newurl.indexOf('home') === -1? 'Weather':'Home';
-                $rootScope.urlpage = newurl.indexOf('home') === -1?'home':'weather';
             });
         }]);
 
