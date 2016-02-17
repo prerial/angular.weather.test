@@ -1,9 +1,6 @@
 /**
  * Created by Mikhail on 2/12/2016.
  */
-/**
- * Created by Mikhail on 2/12/2016.
- */
 describe('Testing Routes', function(){
     var $route, $rootScope, $location, $httpBackend;
 
@@ -15,7 +12,6 @@ describe('Testing Routes', function(){
             $rootScope = $injector.get('$rootScope');
             $location = $injector.get('$location');
             $httpBackend = $injector.get('$httpBackend');
-
             $httpBackend.when('GET', 'src/templates/weather/home.html').respond('home');
         });
     });
@@ -36,7 +32,7 @@ describe('Testing Routes', function(){
         expect($location.path()).toBe('/home');
         expect($route.current.templateUrl).toBe('src/templates/weather/home.html');
         expect($route.current.controller).toBe('appController');
-    })
+    });
 
     it('should redirect urls to weather', function(){
         $rootScope.$apply(function() {
@@ -45,7 +41,7 @@ describe('Testing Routes', function(){
         expect($location.path()).toBe('/weather');
         expect($route.current.templateUrl).toBe('src/templates/weather/weather.html');
         expect($route.current.controller).toBe('weatherController');
-    })
+    });
 });
 
 
