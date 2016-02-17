@@ -29,7 +29,7 @@ describe('Testing Routes', function(){
         expect($route.current.controller).toBe('appController');
     });
 
-    it('should redirect not registered urls to home', function(){
+    it('should redirect urls to home', function(){
         $rootScope.$apply(function() {
             $location.path('/other');
         });
@@ -38,7 +38,7 @@ describe('Testing Routes', function(){
         expect($route.current.controller).toBe('appController');
     })
 
-    it('should redirect not registered urls to home', function(){
+    it('should redirect urls to weather', function(){
         $rootScope.$apply(function() {
             $location.path('/weather');
         });
