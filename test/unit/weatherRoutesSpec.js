@@ -37,6 +37,15 @@ describe('Testing Routes', function(){
         expect($route.current.templateUrl).toBe('src/templates/weather/home.html');
         expect($route.current.controller).toBe('appController');
     })
+
+    it('should redirect not registered urls to home', function(){
+        $rootScope.$apply(function() {
+            $location.path('/weather');
+        });
+        expect($location.path()).toBe('/weather');
+        expect($route.current.templateUrl).toBe('src/templates/weather/weather.html');
+        expect($route.current.controller).toBe('weatherController');
+    })
 });
 
 
