@@ -5,7 +5,7 @@
     'use strict';
 
     angular.module('weather')
-        .controller('weatherController', ['$scope', 'urls', 'weatherService', 'alertService', function($scope, urls, weatherService, alertService) {
+        .controller('weatherController', ['$scope', 'Config', 'weatherService', 'alertService', function($scope, Config, weatherService, alertService) {
 
             $scope.alert = alertService;
             $scope.isLoading = false;
@@ -34,7 +34,7 @@
                 }
                 $scope.isHidden = true;
                 alertService.hide();
-                weatherService.getWeather(urls.weather + location).then(
+                weatherService.getWeather(Config.urls.weather + location).then(
                     function( resp ) {
                         if(resp.error && resp.error === true){
                             $scope.isHidden = true;

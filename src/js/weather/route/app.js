@@ -5,13 +5,13 @@
     'use strict';
 
     angular.module('weather')
-        .config( ['$routeProvider', 'Navigation', function($routeProvider, navigation) {
+        .config( ['$routeProvider', 'Config', function($routeProvider, Config) {
 
             $routeProvider
-                .when(navigation['Home'].route, navigation['Home'].config)
-                .when(navigation['Weather'].route, navigation['Weather'].config)
+                .when(Config.navigation['Home'].route, Config.navigation['Home'].config)
+                .when(Config.navigation['Weather'].route, Config.navigation['Weather'].config)
                 .otherwise({
-                    redirectTo: navigation['Home'].route
+                    redirectTo: Config.navigation['Home'].route
                 });
         }]).run(['$rootScope',function ($rootScope) {
             $rootScope.$on('$locationChangeSuccess', function (evt, newurl) {
