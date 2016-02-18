@@ -35,6 +35,34 @@ describe('Weather Service test', function() {
             expect(weatherlist.temperature).toBe(123456);
 
         });
+
+        it('check if request returned an error', function() {
+            mockData.cod = '404';
+            mockBackend.expectGET(dataUrl).respond(mockData);
+            var weatherlist = null;
+            var promise = loader.getWeather(dataUrl);
+            promise.then(function(rec) {
+                weatherlist = rec;
+            });
+            expect(weatherlist).toBe(null);
+            mockBackend.flush();
+            expect(weatherlist.error).toBe(true);
+        });
+
+        it('check if request returned generic error', function() {
+            var errmessage = 'Weather data is not available right now.\nPlease, try again later.';
+            mockBackend.expectGET(dataUrl).respond(404,'');
+            var weatherlist = null;
+            var promise = loader.getWeather(dataUrl);
+            promise.then(function(rec) {
+                weatherlist = rec;
+            });
+            expect(weatherlist).toBe(null);
+            mockBackend.flush();
+            expect(weatherlist.error).toBe(true);
+            expect(weatherlist.message).toBe(errmessage);
+
+        });
     });
 });
 
