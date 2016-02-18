@@ -12,15 +12,17 @@ module.exports = function(config){
 
       // include JS files
       'src/js/modules.js',
+//      'test/built.js',
       'src/js/weather/*/*.js',
 
       //'for-unit-test/**/*.js',
 
       // include html template files
+      'target/js/templates.js',
+//      'src/templates/weather/*.html',
 
       // include unit test specs
       'test/mocks/*.js',
-      // include unit test specs
       'test/unit/*.js'
     ],
     // files to exclude
@@ -40,7 +42,7 @@ module.exports = function(config){
     preprocessors: {
     },
 
-    reporters: ['dots', 'progress', 'coverage'],
+    reporters: ['dots'/*, 'progress', 'coverage'*/],
 
     // list of karma plugins
     plugins : [
