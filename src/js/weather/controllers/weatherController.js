@@ -21,9 +21,9 @@
             $scope.getWeather = function() {
                 var location = null;
                 $scope.isLoading = true;
-                if ($scope.weatherForm.city) {
+                if ($scope.weatherForm.city && $scope.weatherForm.city !== '') {
                     location = 'q='+$scope.weatherForm.city;
-                } else if ($scope.weatherForm.zip && $scope.weatherForm.zip.length === 5) {
+                } else if ($scope.weatherForm.zip && $scope.weatherForm.zip !== '' && $scope.weatherForm.zip.length === 5) {
                     location = 'zip='+$scope.weatherForm.zip;
                 }else{
                     $scope.isLoading = false;

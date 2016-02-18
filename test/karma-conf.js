@@ -14,6 +14,7 @@ module.exports = function(config){
       'src/js/modules.js',
 //      'test/built.js',
       'src/js/weather/*/*.js',
+//      'target/js/main.js',
 
       //'for-unit-test/**/*.js',
 
