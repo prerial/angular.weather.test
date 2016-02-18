@@ -40,9 +40,13 @@ module.exports = function(config){
 
     // map of preprocessors that is used mostly for plugins
     preprocessors: {
+      // source files, that you wanna generate coverage for
+      // do not include tests or libraries
+      // (these files will be instrumented by Istanbul)
+      'src/js/weather/*/*.js': ['coverage']
     },
 
-    reporters: ['dots'/*, 'progress', 'coverage'*/],
+    reporters: ['dots'/*, 'progress'*/, 'coverage'],
 
     // list of karma plugins
     plugins : [
@@ -61,11 +65,11 @@ module.exports = function(config){
     },
     coverageReporter: {
       // type of file to output, use text to output to console
-      type : 'text',
+      type : 'html',
       // directory where coverage results are saved
-      dir: 'test-results/coverage/'
+      dir: 'test-results/coverage/',
       // if type is text or text-summary, you can set the file name
-      // file: 'coverage.txt'
+      file: 'coverage.html'
     },
     junitReporter: {
       outputFile: 'test-results/junit-results.xml'
