@@ -5,7 +5,7 @@
     'use strict';
 
     angular.module('weather')
-        .controller('weatherController', ['$scope', 'Config', 'weatherService', 'alertService', function($scope, Config, weatherService, alertService) {
+        .controller('weatherpController', ['$scope', 'Config', 'weatherService', 'alertService', function($scope, Config, weatherService, alertService) {
 
             $scope.alert = alertService;
             $scope.isLoading = false;
@@ -19,12 +19,13 @@
                 $scope.weatherForm.$setUntouched();
             };
             $scope.getWeather = function() {
-                var location = null;
+                var location = '';
                 $scope.isLoading = true;
+
                 if ($scope.weatherForm.city && $scope.weatherForm.city !== '') {
-                    location = 'q='+$scope.weatherForm.city;
+                    location = "q=select * from weather.forecast where woeid in (select woeid from geo.places(1) where text='" + $scope.weatherForm.city + "')"
                 } else if ($scope.weatherForm.zip && $scope.weatherForm.zip !== '' && $scope.weatherForm.zip.length === 5) {
-                    location = 'zip='+$scope.weatherForm.zip;
+                    location = "q=select * from weather.forecast where woeid in (select woeid from geo.places(1) where text='" + $scope.weatherForm.zip + "')"
                 }else{
                     $scope.isLoading = false;
                     $scope.isHidden = true;
@@ -32,9 +33,10 @@
                     $scope.resetForm();
                     return;
                 }
+
                 $scope.isHidden = true;
                 alertService.hide();
-                weatherService.getWeather(Config.urls.weather + location, Config.navigation.Weather.source).then(
+                weatherService.getWeather(Config.urls.weatherp + location, Config.navigation.Weatherp.source).then(
                     function( resp ) {
                         if(resp.error && resp.error === true){
                             $scope.isHidden = true;

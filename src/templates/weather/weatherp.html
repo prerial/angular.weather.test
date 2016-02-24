@@ -5,7 +5,7 @@
                 <span class="toggle-menu-bar"></span>
                 <span class="toggle-menu-bar"></span>
             </li>
-        </ul><span class="weather-title">Open Weather Map</span>
+        </ul><span class="weather-title">Yahoo Weather</span>
 </div>
 
 <div style="margin:20px">
@@ -28,16 +28,24 @@
             </tr>
         </table>
     </form>
+    <div id="yw-forecast" class="yw-forecast" ng-hide="isHidden">
+        <h3>Results:</h3>
+        <div class="weather-data">
+            <p><label>City:</label><span> {{weather.city}}</span></p>
+            <p><label>Current Weather:</label><span> {{weather.description}}</span></p>
+            <p><label>Last Reading:</label><span> {{weather.reading}}</span></p>
+            <p><label>Temperature:</label><span> {{weather.temperature}} &#8457;</span></p>
+            <p><label>Humidity:</label><span> {{weather.humidity}} &#37;</span></p>
+            <p><label>Sunrise:</label><span> {{weather.sunrise}}</span></p>
+            <p><label>Sunset:</label><span> {{weather.sunset}}</span></p>
+        </div>
+        <div class="forecast-temp" style="">
+            <div class="yw-temp">{{weather.temperature}} &#8457;</div>
+            <p>High: <span>{{weather.high}}</span>&nbsp; Low: <span>{{weather.low}}</span></p>
+            <br>
+        </div>
+        <div class="forecast-icon"><img src="{{weather.picture}}"></div>
 
-    <h3>Results:</h3>
-    <div ng-hide="isHidden">
-        <p><label>City:</label><span> {{weather.city}}</span></p>
-        <p><label>Current Weather:</label><span> {{weather.description}}</span></p>
-        <p><label>Last Reading:</label><span> {{weather.reading}}</span></p>
-        <p><label>Temperature:</label><span> {{weather.temperature}} &#8457;</span></p>
-        <p><label>Humidity:</label><span> {{weather.humidity}} &#37;</span></p>
-        <p><label>Sunrise:</label><span> {{weather.sunrise}}</span></p>
-        <p><label>Sunset:</label><span> {{weather.sunset}}</span></p>
     </div>
     <div ng-show="alert.isAlert" style="color:red;" ng-repeat="line in (alert.alertParam.message | newlines) track by $index">
         <span>{{line}}</span>

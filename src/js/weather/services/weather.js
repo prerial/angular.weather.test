@@ -6,12 +6,14 @@
 
     angular.module('weather').factory('weatherService',['$http', '$q', function($http, $q) {
 
+        var source = '';
+
         function getTime(str) {
             var date = new Date(str*1000);
             return date.toLocaleDateString() + " " + date.toLocaleTimeString();
         }
 
-        function weatherItem(dt){
+        function weatherGetItem(dt){
             return {
                 city: dt.name,
                 description: dt.weather[0].description,
@@ -22,10 +24,27 @@
                 sunset: getTime(dt.sys.sunset)
             }
         }
+        function weatherYahooItem(dt){
+            return {
+                city: dt.location.city,
+                description: dt.item.condition.text,
+                reading: dt.item.condition.date,
+                temperature: dt.item.condition.temp,
+                low: dt.item.forecast[0].low,
+                high: dt.item.forecast[0].high,
+                humidity: dt.atmosphere.humidity,
+                sunrise: dt.astronomy.sunrise,
+                picture: 'http://l.yimg.com/a/i/us/nws/weather/gr/' + dt.item.condition.code + 'd.png',
+                sunset: dt.astronomy.sunset
+            }
+        }
 
-        function getWeather(url) {
+        function getWeather(url, src) {
+
+            source = src;
+
             var request = $http({
-                method: "get",
+                method: 'get',
                 url: url
             });
             return( request.then( handleSuccess, handleError ) );
@@ -52,7 +71,11 @@
                 response.data.error = true;
                 return( response.data);
             }else{
-                return( weatherItem(response.data) );
+                if(source !== 'yahoo'){
+                    return( weatherGetItem(response.data) );
+                }else{
+                    return( weatherYahooItem(response.data.query.results.channel) );
+                }
             }
         }
 

@@ -81,8 +81,18 @@ nav{
         margin-bottom: -1px;
         background-color: $black-light;
         border-bottom:2px solid $gray;
+        &:hover{
+          background-color: $black;
+          color:$white;
+          a {
+            color: $white;
+          }
+        }
         &:first-child {
           background-color: $gray;
+          a {
+            color: $gray-light;
+          }
         }
       }
 

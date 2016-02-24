@@ -10,6 +10,7 @@
             $routeProvider
                 .when(Config.navigation['Home'].route, Config.navigation['Home'].config)
                 .when(Config.navigation['Weather'].route, Config.navigation['Weather'].config)
+                .when(Config.navigation['Weatherp'].route, Config.navigation['Weatherp'].config)
                 .otherwise({
                     redirectTo: Config.navigation['Home'].route
                 });
