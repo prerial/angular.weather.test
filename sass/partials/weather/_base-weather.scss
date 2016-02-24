@@ -2,16 +2,22 @@
   margin: 70px 20px;
   width:400px;
 }
-.yw-forecast{clear:both;position:relative;width:650px;min-height:190px;height:14.6154em;*height:14.2632em;margin-bottom:15px;background:#CCE1FF url(http://l.yimg.com/a/i/us/nws/weather/crntcondbg_day.gif) repeat-x;border:1px solid #5182ce;border-left:none;border-right:none;}
-.yw-forecast.night{border:1px solid #8e8e8e;border-left:none;border-right:none;background:#DFDDE2 url(http://l.yimg.com/a/i/us/nws/weather/crntcondbg_night.gif);}
-.yw-forecast .forecast-temp{position:absolute;top:45px;right:20px;min-width:200px;background:url(http://l.yimg.com/a/i/us/nws/weather/wdgt_day.png) no-repeat;_background-image:none;filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='http://l.yimg.com/a/i/us/nws/weather/wdgt_day.png',sizingMethod='crop');z-index:0;}
-.yw-forecast.night .forecast-temp{background:url(http://l.yimg.com/a/i/us/nws/weather/wdgt_night.png) no-repeat;_background-image:none;filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='http://l.yimg.com/a/i/us/nws/weather/wdgt_night.png',sizingMethod='crop');}
-.yw-forecast .forecast-temp .yw-temp{float:right;color:#fff;
-  text-shadow:#315895 0 -1px 1px;font-weight:bold;font-size:220%;padding:15px 25px 12px 0;
+.yw-forecast{
+  clear:both;position:relative;width:650px;min-height:190px;height:14.6154em;*height:14.2632em;margin-bottom:15px;background:#CCE1FF url(http://l.yimg.com/a/i/us/nws/weather/crntcondbg_day.gif) repeat-x;border:1px solid #5182ce;border-left:none;border-right:none;
+  h3, .weather-data{ padding: 0 0 0 20px;}
+  .forecast-icon{position:absolute;top:0;left:320px;width:250px;height:130px;background-repeat:no-repeat;}
+  .forecast-temp{
+    position:absolute;top:45px;right:20px;min-width:200px;background:url(http://l.yimg.com/a/i/us/nws/weather/wdgt_day.png) no-repeat;_background-image:none;filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='http://l.yimg.com/a/i/us/nws/weather/wdgt_day.png',sizingMethod='crop');z-index:0;
+    .yw-temp{float:right;color:#fff;
+      text-shadow:#315895 0 -1px 1px;font-weight:bold;font-size:220%;padding:15px 25px 12px 0;
+    }
+    p{clear:right;text-align:right;margin-bottom:17px;padding-right:17px;color:#fff;font-size:85%;text-shadow:#315895 0 -1px 1px;}
+  }
+  &.night{
+    border:1px solid #8e8e8e;border-left:none;border-right:none;background:#DFDDE2 url(http://l.yimg.com/a/i/us/nws/weather/crntcondbg_night.gif);
+    .forecast-temp{background:url(http://l.yimg.com/a/i/us/nws/weather/wdgt_night.png) no-repeat;_background-image:none;filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='http://l.yimg.com/a/i/us/nws/weather/wdgt_night.png',sizingMethod='crop');}
+  }
 }
-.yw-forecast .forecast-temp p{clear:right;text-align:right;margin-bottom:17px;padding-right:17px;color:#fff;font-size:85%;text-shadow:#315895 0 -1px 1px;}
-.yw-forecast .forecast-icon{position:absolute;top:0;left:320px;width:250px;height:130px;background-repeat:no-repeat;}
-.yw-forecast h3, .weather-data{ padding: 0 0 0 20px;}
 
 p,.form-label{
   font-size:14px;
