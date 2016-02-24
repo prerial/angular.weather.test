@@ -24,7 +24,7 @@
                 sunset: getTime(dt.sys.sunset)
             }
         }
-        function weatherYahooItem(dt){
+        function weatherYahooGetItem(dt){
             return {
                 city: dt.location.city,
                 description: dt.item.condition.text,
@@ -50,7 +50,7 @@
             return( request.then( handleSuccess, handleError ) );
         }
 
-        function handleError( response ) {
+        function setErrorData( response ) {
             var message;
             if ( ! angular.isObject( response.data ) || ! response.data.message  ) {
                 message ='Weather data is not available right now.\nPlease, try again later.';
@@ -58,12 +58,16 @@
             if(response.cod === '404' || response.cod === '500'){
                 message = response.cod === '404'? response : 'Weather data is not available right now.\nPlease, try again later.';
             }
-            response.data = {
+            return response.data = {
                 error: true,
                 message: message
             };
-            $q.reject( response.data );
-            return(response.data);
+        }
+
+        function handleError( response ) {
+            var err = setErrorData(response);
+            $q.reject( err );
+            return(err);
         }
 
         function handleSuccess( response ) {
@@ -74,7 +78,11 @@
                 if(source !== 'yahoo'){
                     return( weatherGetItem(response.data) );
                 }else{
-                    return( weatherYahooItem(response.data.query.results.channel) );
+                    if(response.data.query.results === null){
+                        return setErrorData(response);
+                    }else{
+                        return( weatherYahooGetItem(response.data.query.results.channel) );
+                    }
                 }
             }
         }
