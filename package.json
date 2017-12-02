@@ -10,7 +10,7 @@
   "author"       : "MG",
   "main"         : "server.js",
   "dependencies" : {
-    "ejs": "~2.3.4",
+    "ejs": "~2.5.5",
     "express": "~4.13.4",
     "grunt": "~0.4.5"
   },
